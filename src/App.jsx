@@ -1,7 +1,9 @@
-import React, { useState, Suspense } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import NiceModal from '@ebay/nice-modal-react'
+import { useDispatch } from "react-redux";
+import {checkUserSigninApi} from './store/authActions'
 
 import './App.css'
 import NotFoundPage from "./pages/NotFound";
@@ -9,6 +11,10 @@ import LoginPage from "./pages/Login";
 import Homepage from "./pages/Homepage";
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(checkUserSigninApi())
+  }, [])
 
   return (
     <>

@@ -8,7 +8,7 @@ import config from '../../config'
 const LoginPage = (props) => {
   const loginWithGoogle = async () => {
     const response = await axios.get(
-      `${config.apiUrl}/googleLogin`
+      `${config.apiUrl}/auth/googleLogin`
     );
     const googleLoginUrl = response.data?.redirectUrl;
     console.log("googleLoginUrl", googleLoginUrl);
